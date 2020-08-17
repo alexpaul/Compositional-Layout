@@ -98,4 +98,4 @@ configureCollectionView()
 configureDataSource()
 ```
 
-![grid-view-layout](Assets/grid-view.png)
+![grid-view-layout](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/grid-view.png)
