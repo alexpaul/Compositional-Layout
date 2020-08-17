@@ -122,6 +122,7 @@ class HeaderView: UICollectionReusableView {
   public var textLabel: UILabel = {
     let label = UILabel()
     label.textAlignment = .center
+    label.font = UIFont.preferredFont(forTextStyle: .headline)
     return label
   }()
   
