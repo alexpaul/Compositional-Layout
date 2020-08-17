@@ -99,3 +99,5 @@ configureDataSource()
 ```
 
 ![grid-view-layout](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/grid-view.png)
+
+## [Video](https://www.youtube.com/watch?v=toceVnka2jo)
