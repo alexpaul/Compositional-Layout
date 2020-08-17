@@ -156,6 +156,7 @@ configureDataSource()
 
 ![grid-view-layout](Assets/grid-view.png)
 
+#### [Completed Project](https://github.com/alexpaul/Compositional-Layout/tree/master/Compositional-Layout)
 
 ## Resources 
 
