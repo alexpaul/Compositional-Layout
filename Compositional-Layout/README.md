@@ -1,15 +1,15 @@
-## Let's build our first compositional layout 
+# Let's build our first compositional layout 
 
 This app uses a collection view to lay out a grid view of items. 
 
 
-#### 1. Declare the collection view in Storyboard or Programmatic 
+## 1. Declare the collection view in Storyboard or Programmatic 
 
 ```swift 
 @IBOutlet weak var collectionView: UICollectionView!
 ```
 
-#### 2. Create the compositional layout
+## 2. Create the compositional layout
 
 A compositional layout is made of an item -> group -> section -> layout. An item is the smallest component. An item belongs to a group. A group belongs to a section. A layout is made of one or more sections. 
 
@@ -39,7 +39,7 @@ private func createLayout() -> UICollectionViewLayout {
 ```
 
 
-#### 3. Use the compositional layout to configure the collection view's layout
+## 3. Use the compositional layout to configure the collection view's layout
 
 **Using Storyboard**
 
@@ -54,13 +54,13 @@ collectionView.backgroundColor = .systemBackground
 collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
 ```
 
-#### 4. Declare the data source using `UICollectionViewDiffableDataSource`
+## 4. Declare the data source using `UICollectionViewDiffableDataSource`
 
 ```swift 
 private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
 ```
 
-#### 5. Declare and enum that will hold the colleciton view's sections
+## 5. Declare and enum that will hold the colleciton view's sections
 
 
 ```swift 
@@ -69,7 +69,7 @@ enum Section {
 }
 ```
 
-#### 6. Configure the data soruce and the snapshot 
+## 6. Configure the data soruce and the snapshot 
 
 ```swift 
 private func configureDataSource() {
@@ -91,7 +91,7 @@ private func configureDataSource() {
 }
 ```
 
-#### 7. Call the setup code in `viewDidLoad()`
+## 7. Call the setup code in `viewDidLoad()`
 
 ```swift 
 configureCollectionView()
