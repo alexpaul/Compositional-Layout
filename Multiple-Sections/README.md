@@ -237,3 +237,5 @@ override func viewDidLoad() {
 ```
 
 ![multiple-sections](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/multiple-sections-update.png)
+
+## [Video](https://youtu.be/DcVFs7jLMBs)
