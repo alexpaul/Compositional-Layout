@@ -186,6 +186,8 @@ private func configureDataSource() {
 }
 ```
 
+A [closure](https://developer.apple.com/documentation/uikit/uicollectionviewdiffabledatasourcereference/uicollectionviewdiffabledatasourcereferencesupplementaryviewprovider) that configures and returns a collection view’s supplementary view, such as a header or footer, from a diffable data source.
+
 ## 9. Create the `NSCollectionLayoutBoundrySupplementaryItem` header view 
 
 ```swift 
