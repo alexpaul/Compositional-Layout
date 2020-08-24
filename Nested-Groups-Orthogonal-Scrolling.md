@@ -226,3 +226,13 @@ private func configureDataSource() {
 }
 ```
 
+## 7. Challenge 
+
+#### App Store Layout 
+
+This layout is inspired from the Apple App Store redesign from iOS 13. To work on this challenge navigate to the `Apps` tab in App Store iOS app. Three sections as illustrated below is sufficient for this challenge.
+
+![app store](Assets/app-store.png)
+
+![app store](Assets/app-store-continued.png)
+
