@@ -7,9 +7,9 @@
 * Adding header views to sections using `NSCollectionLayoutBoundarySupplementaryItem`. 
 * Be familiar with the types of orthogonal scrolling. 
 
-![sketch of nested groups](Assets/nested-groups-sketch.jpg)
+![sketch of nested groups](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/nested-groups-sketch.jpg)
 
-![app](Assets/nested-groups-orthogonal-scrolling.png)
+![app](Assets/https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/nested-groups-orthogonal-scrolling.png)
 
 ## Starter Files 
 
