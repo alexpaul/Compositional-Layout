@@ -232,7 +232,7 @@ private func configureDataSource() {
 
 This layout is inspired from the Apple App Store redesign from iOS 13. To work on this challenge navigate to the `Apps` tab in App Store iOS app. Three sections as illustrated below is sufficient for this challenge.
 
-![app store](Assets/app-store.png)
+![app store](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/app-store.png)
 
-![app store](Assets/app-store-continued.png)
+![app store](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/app-store-continued.png)
 
