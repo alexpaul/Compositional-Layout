@@ -4,13 +4,13 @@
 
 ![photo search](Assets/photo-search.png)
 
-## Objectives 
+## 1. Objectives 
 
 * Use all we've learnt so far to build a photo search application using a custom compositional layout. 
 * Use the `Combine` framework to make asynchronous network requests via a `Publisher` and `Subscriber`. 
 * Use `UISearchController` along with the `debounce` Combine operator to prevent multiple network requests from the search bar. 
 
-## Starter Files 
+## 2. Starter Files 
 
 #### ImageCell
 
@@ -76,3 +76,15 @@ struct Photo: Decodable, Hashable {
   let webformatURL: String
 }
 ```
+
+## 3. Combine APIs we will be using in this lesson 
+
+#### `@Published`
+
+Allows any property to be a `Publisher` and emit values over time. e.g in this app as the user enters text into the search bar the subscriber will have access to the values the user enters. This user entered input will then be passed over to the api client to perform the photo search from Pixabay. 
+
+#### `URLSession.shared.dataTaskPublisher(url:_)`
+
+This is a wrapper around `URLSession` that Combine provides and allows us to create a `Publisher` that we will be subscribing on in our view controller to get the results of the photo search. 
+
+
