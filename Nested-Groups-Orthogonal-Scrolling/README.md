@@ -9,7 +9,7 @@
 
 ![sketch of nested groups](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/nested-groups-sketch.jpg)
 
-![app](Assets/https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/nested-groups-orthogonal-scrolling.png)
+![app](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/nested-groups-orthogonal-scrolling.png)
 
 ## Starter Files 
 
