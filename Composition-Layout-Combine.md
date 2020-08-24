@@ -87,4 +87,13 @@ Allows any property to be a `Publisher` and emit values over time. e.g in this a
 
 This is a wrapper around `URLSession` that Combine provides and allows us to create a `Publisher` that we will be subscribing on in our view controller to get the results of the photo search. 
 
+#### `debounce`
+
+Allows a scheduled time before carrying out a specific task. In the case of our app we will add a second delay after the user finishes to type before running the network request of their search. This will prevent multiple requests from going to the Pixabay API as the user is typing. 
+
+## 4. `UISearchController` 
+
+Allows you to embed a search bar into the navigation bar item and is a more modern way to carry out searches with some more flexibility as opposed to your standard `UISearchBar` api. Also you can assign a specific view controller to be the results controller among other features `UISearchController` provides. 
+
+
 
