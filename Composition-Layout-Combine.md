@@ -187,7 +187,7 @@ view.addSubview(collectionView)
 
 ## 14. Configure the data source 
 
-Add Kingfisher dependency via `Swift Package Manager` or `Cocoapods` for network image processing on our custom ImageCell's imageView property. 
+Add [Kingfisher](https://github.com/onevcat/Kingfisher) dependency `https://github.com/onevcat/Kingfisher` via `Swift Package Manager` or `Cocoapods` for network image processing on our custom ImageCell's imageView property. 
 
 ```swift 
 dataSource = DataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, photo) -> UICollectionViewCell? in
