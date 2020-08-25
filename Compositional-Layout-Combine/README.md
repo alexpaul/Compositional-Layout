@@ -1,8 +1,8 @@
 # Using Compositional Layout and Combine
 
-![photo search sketch](Assets/photo-search-layout.jpg)
+![photo search sketch](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/photo-search-layout.jpg)
 
-![photo search](Assets/photo-search.png)
+![photo search](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/photo-search.png)
 
 ## 1. Objectives 
 
