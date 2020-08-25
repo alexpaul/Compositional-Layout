@@ -140,13 +140,38 @@ Those subscriptions will be released from memory when `deinit` is called on the 
 private var subscriptions: Set<AnyCancellable> = []
 ```
 
-## 11. Declare an instance of the API client 
+## 11. API Client 
+
+```swift 
+import Foundation
+import Combine
+
+class APIClient {
+  public func searchPhotos(for query: String) -> AnyPublisher<[Photo], Error> {
+    let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "paris"
+    let perPage = 200 // max is 200
+    let endpoint = "https://pixabay.com/api/?key=\(Config.apikey)&q=\(query)&per_page=\(perPage)&safesearch=true"
+    let url = URL(string: endpoint)!
+    
+    // using combine for asynchronous networking
+    // create a publisher
+    return URLSession.shared.dataTaskPublisher(for: url)
+      .map(\.data)
+      .decode(type: PhotoResultsWrapper.self, decoder: JSONDecoder())
+      .map { $0.hits }
+      .receive(on: DispatchQueue.main)
+      .eraseToAnyPublisher()
+  }
+}
+```
+
+## 12. Declare an instance of the API client 
 
 ```swift 
 private let apiClient = APIClient() 
 ```
 
-## 12. Create the collection view's layout using compositional layout 
+## 13. Create the collection view's layout using compositional layout 
 
 In this layout with have a leading and a trailing group embedded in a container group. The leading group has 2 items vertically aligned and the trailing group has 3 items vertically aligned. 
 
@@ -174,7 +199,7 @@ private func createLayout() -> UICollectionViewLayout {
 }
 ```
 
-## 13. Configure the collection view 
+## 14. Configure the collection view 
 
 ```swift 
 collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
@@ -185,7 +210,7 @@ collectionView.delegate = self
 view.addSubview(collectionView)
 ```
 
-## 14. Configure the data source 
+## 15. Configure the data source 
 
 Add [Kingfisher](https://github.com/onevcat/Kingfisher) dependency `https://github.com/onevcat/Kingfisher` via `Swift Package Manager` or `Cocoapods` for network image processing on our custom ImageCell's imageView property. 
 
@@ -202,7 +227,7 @@ dataSource = DataSource(collectionView: collectionView, cellProvider: { (collect
 })
 ```
 
-## 15. Configure the `UISearchController`
+## 16. Configure the `UISearchController`
 
 ```swift 
 searchController = UISearchController(searchResultsController: nil)
@@ -228,7 +253,7 @@ extension PhotoSearchViewController: UISearchResultsUpdating {
 }
 ```
 
-## 16. Subscribe to the search text `Publisher`  
+## 17. Subscribe to the search text `Publisher`  
 
 Using the `$` before a property's instance says you are now subscribing to this `Publisher` property and would like to receive its values as they are emitted.
 
@@ -243,7 +268,7 @@ $searchText
   .store(in: &subscriptions)
 ```
 
-## 17. Implement the `searchPhotos` method to query the API client 
+## 18. Implement the `searchPhotos` method to query the API client 
 
 ```swift 
 private func searchPhotos(for query: String) {
@@ -258,7 +283,7 @@ private func searchPhotos(for query: String) {
 }
 ```
 
-## 18. Conform and implement the collection view's `delegate` 
+## 19. Conform and implement the collection view's `delegate` 
 
 Implement `scrollViewWillBeginDragging(_ :)` so the keyboard is dismissed at the user drags the on the collection view up or down. 
 
@@ -274,7 +299,7 @@ extension PhotoSearchViewController: UICollectionViewDelegate {
 }
 ```
 
-## 19. Challenge 
+## 20. Challenge 
 
 Use this endpoint `https://api.tvmaze.com/shows/431/episodes` from the TVMaze API to create an app that populates a collection view with all 10 seasons of Friends.
 
