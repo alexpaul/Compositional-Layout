@@ -95,5 +95,54 @@ Allows a scheduled time before carrying out a specific task. In the case of our 
 
 Allows you to embed a search bar into the navigation bar item and is a more modern way to carry out searches with some more flexibility as opposed to your standard `UISearchBar` api. Also you can assign a specific view controller to be the results controller among other features `UISearchController` provides. 
 
+## 5. Create an `enum` to hold the collection view's sections 
 
+In this app we will have only 1 section. 
+
+```swift 
+enum SectionKind: Int, CaseIterable {
+  case main
+}
+```
+
+## 6. Declare the collection view 
+
+```swift 
+private var collectionView: UICollectionView!
+```
+
+## 7. Declare the data source 
+
+```swift 
+typealias DataSource = UICollectionViewDiffableDataSource<SectionKind, Photo>
+private var dataSource: DataSource!
+```
+
+## 8. Declare the search controller 
+
+```swift 
+private var searchController: UISearchController!
+```
+
+## 9. Declare a search text `@Published` property 
+
+This property will be a `Publisher` and be able to emit values as it's changed. 
+
+```swift
+@Published private var searchText: String? = "paris"
+```
+
+## 10. Declare a property the will hold references to all the subscriptions in our app
+
+Those subscriptions will be released from memory when `deinit` is called on the view controller. 
+
+```swift 
+private var subscriptions: Set<AnyCancellable> = []
+```
+
+## 11. Declare an instance of the API client 
+
+```swift 
+private let apiClient = APIClient() 
+```
 
