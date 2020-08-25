@@ -16,7 +16,7 @@ class APIClient {
     let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "paris"
     let endpoint = "https://pixabay.com/api/?key=\(Config.apikey)&q=\(query)&per_page=\(perPage)&safesearch=true"
     
-    let url = URL(string: endpoint)!
+    let url = URL(string: endpoint)! // don't forget to add your Pixabay API key to the Config.swift file
     
     // using Combine for networking
     return URLSession.shared.dataTaskPublisher(for: url)
