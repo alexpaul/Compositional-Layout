@@ -272,5 +272,15 @@ extension PhotoSearchViewController: UICollectionViewDelegate {
 }
 ```
 
+## 19. Challenge 
+
+Use this endpoint `https://api.tvmaze.com/shows/431/episodes` from the TVMaze API to create an app that populates a collection view with all 10 seasons of Friends.
+
+* The app should use the Combine framework to make network requests.
+* The app should have 10 sections with header views. 
+* The first header view should consist of a Friends Poster image, e.g the height of the image can be 400 points. The image should take up the entire width of the section. 
+* Show the summary of an episode along with the `original` image from the TVMaze API.
+* Use your own creativity to make the app spark. 
+
 
 
