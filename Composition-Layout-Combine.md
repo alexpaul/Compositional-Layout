@@ -146,3 +146,131 @@ private var subscriptions: Set<AnyCancellable> = []
 private let apiClient = APIClient() 
 ```
 
+## 12. Create the collection view's layout using compositional layout 
+
+In this layout with have a leading and a trailing group embedded in a container group. The leading group has 2 items vertically aligned and the trailing group has 3 items vertically aligned. 
+
+```swift 
+private func createLayout() -> UICollectionViewLayout {
+  let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    let itemSpacing: CGFloat = 5
+    item.contentInsets = NSDirectionalEdgeInsets(top: itemSpacing, leading: itemSpacing, bottom: itemSpacing, trailing: itemSpacing)
+
+    let innerGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
+
+    let leadingGroup = NSCollectionLayoutGroup.vertical(layoutSize: innerGroupSize, subitem: item, count: 2)
+    let trailingGroup = NSCollectionLayoutGroup.vertical(layoutSize: innerGroupSize, subitem: item, count: 3)
+
+    let nestedGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(1000))
+    let nestedGroup = NSCollectionLayoutGroup.horizontal(layoutSize: nestedGroupSize, subitems: [leadingGroup, trailingGroup])
+
+    let section = NSCollectionLayoutSection(group: nestedGroup)
+
+    return section
+  }
+  return layout
+}
+```
+
+## 13. Configure the collection view 
+
+```swift 
+collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseIdentifier)
+collectionView.backgroundColor = .systemBackground
+collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+collectionView.delegate = self
+view.addSubview(collectionView)
+```
+
+## 14. Configure the data source 
+
+```swift 
+dataSource = DataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, photo) -> UICollectionViewCell? in
+  guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.reuseIdentifier, for: indexPath) as? ImageCell else {
+    fatalError()
+  }
+  cell.imageView.kf.indicatorType = .activity
+  cell.imageView.kf.setImage(with: URL(string: photo.webformatURL))
+  cell.imageView.contentMode = .scaleAspectFill
+  cell.layer.cornerRadius = 10
+  return cell
+})
+```
+
+## 15. Configure the `UISearchController`
+
+```swift 
+searchController = UISearchController(searchResultsController: nil)
+navigationItem.searchController = searchController
+searchController.searchResultsUpdater = self
+searchController.obscuresBackgroundDuringPresentation = false
+searchController.searchBar.autocapitalizationType = .none
+```
+
+#### Conform to the `UISearchController` seaerchUpdating protocol
+
+This method gets called everytime the user inputs into the search bar. 
+
+```swift 
+extension PhotoSearchViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    guard let text = searchController.searchBar.text,
+      !text.isEmpty else {
+      return
+    }
+    searchText = text
+  }
+}
+```
+
+## 16. Subscribe to the search text `Publisher`  
+
+Using the `$` before a property's instance says you are now subscribing to this `Publisher` property and would like to receive its values as they are emitted.
+
+```swift 
+// subscribe to searchText
+$searchText
+  .debounce(for: .seconds(1.0), scheduler: RunLoop.main)
+  .removeDuplicates()
+  .sink { (text) in
+    self.searchPhotos(for: text!)
+  }
+  .store(in: &subscriptions)
+```
+
+## 17. Implement the `searchPhotos` method to query the API client 
+
+```swift 
+private func searchPhotos(for query: String) {
+  apiClient.searchPhotos(for: query)
+    .removeDuplicates()
+    .sink(receiveCompletion: { (completion) in
+      print(completion)
+    }) { [weak self] (photos) in
+      self?.updateSnapshot(with: photos)
+    }
+  .store(in: &subscriptions)
+}
+```
+
+## 18. Conform and implement the collection view's `delegate` 
+
+Implement `scrollViewWillBeginDragging(_ :)` so the keyboard is dismissed at the user drags the on the collection view up or down. 
+
+```swift 
+extension PhotoSearchViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    print("\(indexPath.section), \(indexPath.row)")
+  }
+  
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    searchController.searchBar.resignFirstResponder()
+  }
+}
+```
+
+
+
