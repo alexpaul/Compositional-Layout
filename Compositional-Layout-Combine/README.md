@@ -309,5 +309,10 @@ Use this endpoint `https://api.tvmaze.com/shows/431/episodes` from the TVMaze AP
 * Show the summary of an episode along with the `original` image from the TVMaze API.
 * Use your own creativity to make the app spark. 
 
+#### Bonus
+
+* Create a Search controller so the user can search for any tv show. 
+* When the user selects a show it will segue to your controller from the challenge above. 
+
 
 
