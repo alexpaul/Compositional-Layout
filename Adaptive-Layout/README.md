@@ -24,3 +24,5 @@ private func createLayout() -> UICollectionViewLayout {
   return layout
 }
 ```
+
+## [Video](https://www.youtube.com/watch?v=xl1sdrze_a4)
