@@ -9,5 +9,5 @@
 import Foundation
 
 struct Config {
-  static let apikey = "Pixabay API Key Goes here"
+  static let apikey = "7356354-cf6b7d8c17846a6f4898a2636"//"Pixabay API Key Goes here"
 }
