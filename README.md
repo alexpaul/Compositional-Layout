@@ -2,6 +2,8 @@
 
 iOS now provides a newer more flexible, composable way to construct collection views. `UICollectionViewCompositionalLayout` was introduced in iOS 13 at WWDC 2019. Prior to `UICollectionViewCompositionalLayout` we used `UICollectionViewFlowLayout`.  
 
+## [Video Playlists of Lessons](https://www.youtube.com/watch?v=toceVnka2jo&list=PLjdVqs-1R8wHMZ-j_GP_kwB6-7PCGDdfr)
+
 ## Compositional Layout 
 
 * Composable 
