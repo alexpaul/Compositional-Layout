@@ -1,6 +1,8 @@
 # Using Layout Environment 
 
-In this project we make use of the `layoutEnvironment` argument in the section provider closure to return item count base on the orientation width of the device.  
+In this project we make use of the `layoutEnvironment` argument in the section provider closure to return item count base on the orientation width of the device. 
+
+## [YouTube Video](https://www.youtube.com/watch?v=xl1sdrze_a4)
 
 ![adaptive layout](https://github.com/alexpaul/Compositional-Layout/blob/master/Assets/adaptive-layout.png)
 
@@ -24,5 +26,3 @@ private func createLayout() -> UICollectionViewLayout {
   return layout
 }
 ```
-
-## [Video](https://www.youtube.com/watch?v=xl1sdrze_a4)
