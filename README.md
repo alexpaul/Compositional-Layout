@@ -4,6 +4,16 @@ iOS now provides a newer more flexible, composable way to construct collection v
 
 ## [Video Playlists of Lessons](https://www.youtube.com/watch?v=toceVnka2jo&list=PLjdVqs-1R8wHMZ-j_GP_kwB6-7PCGDdfr)
 
+## Table of Contents 
+
+This repositiory has 5 projects: 
+
+1. [Introduction](https://github.com/alexpaul/Compositional-Layout/tree/master/Compositional-Layout)
+2. [Multiple Sections](https://github.com/alexpaul/Compositional-Layout/tree/master/Multiple-Sections)
+3. [Nested Groups and Orthogonal Scrolling](https://github.com/alexpaul/Compositional-Layout/tree/master/Nested-Groups-Orthogonal-Scrolling)
+4. [Photo Search - Compositional Layout and Combine](https://github.com/alexpaul/Compositional-Layout/tree/master/Compositional-Layout-Combine)
+5. [Adaptive Layout](https://github.com/alexpaul/Compositional-Layout/tree/master/Adaptive-Layout)
+
 ## Compositional Layout 
 
 * Composable 
