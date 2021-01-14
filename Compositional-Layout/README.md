@@ -2,6 +2,8 @@
 
 This app uses a collection view to lay out a grid view of items. 
 
+## [YouTube Video](https://youtu.be/toceVnka2jo)
+
 
 ## 1. Declare the collection view in Storyboard or Programmatic 
 
