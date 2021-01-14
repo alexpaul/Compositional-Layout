@@ -8,6 +8,8 @@
 * Add a header view to the section's `boundarySupplementaryItems` property. 
 * Configure the data source's `supplementaryViewProvider` property with a given closure that returns a supplementary view. 
 
+## [YouTube Video](https://youtu.be/DcVFs7jLMBs)
+
 ## 1. Setup an `enum` that will hold the sections 
 
 ```swift 
