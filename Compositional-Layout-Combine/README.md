@@ -10,6 +10,8 @@
 * Use the `Combine` framework to make asynchronous network requests via a `Publisher` and `Subscriber`. 
 * Use `UISearchController` along with the `debounce` Combine operator to prevent multiple network requests from the search bar. 
 
+## [YouTube Video](https://youtu.be/FnY7KOa0GOU)
+
 ## 2. Starter Files 
 
 #### ImageCell
